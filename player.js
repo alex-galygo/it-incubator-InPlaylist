@@ -3,7 +3,7 @@
 // Data
 let title = 'My Playlists';
 
-const playlist1 = {
+const playlist = {
     id: 1,
     type: 'Playlist',
     name: 'Hip-Hop Hits',
@@ -30,56 +30,58 @@ const playlist1 = {
 
 // Render
 
-let titleElement = document.createElement('h1');
-titleElement.innerText = title;
-document.body.append(titleElement);
+let pageTitleElement = document.createElement('h1');
+pageTitleElement.innerText = title;
+document.body.append(pageTitleElement);
 
-let playlistElement = document.createElement('div');
-playlistElement.style.border = '1px solid black';
-playlistElement.style.padding = '10px';
-playlistElement.style.margin = '10px';
-document.body.append(playlistElement);
+function renderPlaylist(playlistForRendering) {
+    let playlistElement = document.createElement('div');
+    playlistElement.style.border = '1px solid black';
+    playlistElement.style.padding = '10px';
+    playlistElement.style.margin = '10px';
+    document.body.append(playlistElement);
 
-let playlistImageElement = document.createElement('img');
-playlistImageElement.src = 'Rectangle 101.png';
-playlistElement.append(playlistImageElement);
+    let playlistImageElement = document.createElement('img');
+    playlistImageElement.src = 'Rectangle 101.png';
+    playlistElement.append(playlistImageElement);
 
-let playlistTypeElement = document.createElement('h3');
-playlistTypeElement.innerText = playlist1.type;
-playlistElement.append(playlistTypeElement);
+    let playlistTypeElement = document.createElement('h3');
+    playlistTypeElement.innerText = playlistForRendering.type;
+    playlistElement.append(playlistTypeElement);
 
-let playlistNameElement = document.createElement('h2');
-playlistNameElement.innerText = playlist1.name;
-playlistElement.append(playlistNameElement);
+    let playlistNameElement = document.createElement('h2');
+    playlistNameElement.innerText = playlistForRendering.name;
+    playlistElement.append(playlistNameElement);
 
-let playlistCountSongsElement = document.createElement('h3');
-playlistCountSongsElement.innerText = playlist1.count_songs + ' tracks'
-playlistElement.append(playlistCountSongsElement);
+    let playlistCountSongsElement = document.createElement('h3');
+    playlistCountSongsElement.innerText = playlistForRendering.count_songs + ' tracks'
+    playlistElement.append(playlistCountSongsElement);
 
-let playlistDurationElement = document.createElement('h3');
-playlistDurationElement.innerText = playlist1.duration + ' min';
-playlistElement.append(playlistDurationElement);
+    let playlistDurationElement = document.createElement('h3');
+    playlistDurationElement.innerText = playlistForRendering.duration + ' min';
+    playlistElement.append(playlistDurationElement);
 
-let playlistAuthorsElement = document.createElement('h3');
-playlistDurationElement.innerText = playlist1.authors.join(', ') + ' and others';
-playlistElement.append(playlistAuthorsElement);
+    let playlistAuthorsElement = document.createElement('h3');
+    playlistDurationElement.innerText = playlistForRendering.authors.join(', ') + ' and others';
+    playlistElement.append(playlistAuthorsElement);
 
-let playlistSongsElement = document.createElement('ul');
-playlistElement.append(playlistSongsElement);
+    let playlistSongsElement = document.createElement('ul');
+    playlistElement.append(playlistSongsElement);
 
-for (let i = 0; i < playlist1.songs.length; i++) {
-    let song = playlist1.songs[i];
-    let songElement = document.createElement('li');
-    songElement.innerText = song.name + ' - ' + song.author;
-    playlistSongsElement.append(songElement);
+    for (let i = 0; i < playlistForRendering.songs.length; i++) {
+        let song = playlistForRendering.songs[i];
+        let songElement = document.createElement('li');
+        songElement.innerText = song.name + ' - ' + song.author;
+        playlistSongsElement.append(songElement);
 
-    let playerElement = document.createElement('audio');
-    playerElement.controls = true;
-    playerElement.src = song.src;
-    songElement.append(playerElement);
+        let playerElement = document.createElement('audio');
+        playerElement.controls = true;
+        playerElement.src = song.src;
+        songElement.append(playerElement);
+    }
 }
 
-
+renderPlaylist(playlist);
 
 
 
