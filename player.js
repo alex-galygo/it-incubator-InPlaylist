@@ -8,7 +8,7 @@ const playlist = {
     type: 'Playlist',
     name: 'Hip-Hop Hits',
     count_songs: 4,
-    duration: 12.13,
+    duration_all: 12.13,
     authors: ['Eminem', '50cent', 'Lloyd Banks'],
     songs: [
         {
@@ -59,11 +59,11 @@ function renderPlaylistHeader(inputPlaylistForRendering) {
     playlistElement.append(playlistCountSongsElement);
 
     let playlistDurationElement = document.createElement('h3');
-    playlistDurationElement.innerText = inputPlaylistForRendering.duration + ' min';
+    playlistDurationElement.innerText = inputPlaylistForRendering.duration_all + ' min';
     playlistElement.append(playlistDurationElement);
 
     let playlistAuthorsElement = document.createElement('h3');
-    playlistDurationElement.innerText = inputPlaylistForRendering.authors.join(', ') + ' and others';
+    playlistAuthorsElement.innerText = inputPlaylistForRendering.authors.join(', ') + ' and others';
     playlistElement.append(playlistAuthorsElement);
 
 }
