@@ -13,6 +13,7 @@ const playlist = {
     songs: [
         {
             id: 1,
+            cover_image: 'Image20231205223615.png',
             name: 'Eminem',
             author: 'Rap God',
             duration: 3.41,
@@ -20,6 +21,7 @@ const playlist = {
         },
         {
             id: 2,
+            cover_image: 'Image20231205223549.png',
             name: 'In da Club',
             author: '50 cent',
             duration: 4.31,
@@ -74,6 +76,13 @@ function renderTrack(inputTrackForRendering) {
 
     for (let i = 0; i < inputTrackForRendering.songs.length; i++) {
         let song = inputTrackForRendering.songs[i];
+
+        let songImageElement = document.createElement('img');
+        songImageElement.src = song.cover_image;
+        songImageElement.style.width = '50px';
+        songImageElement.style.height = '50px';
+        playlistSongsElement.append(songImageElement);
+
         let songElement = document.createElement('li');
         songElement.innerText = song.name + ' - ' + song.author;
         playlistSongsElement.append(songElement);
