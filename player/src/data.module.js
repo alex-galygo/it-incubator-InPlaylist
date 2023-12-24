@@ -5,13 +5,13 @@ export const playlists = [
         playlist_crc: './player/images/playlist-1-logo.png',
         title: 'Hip-Hop Hits',
         count_songs: 4,
-        duration_all: 12.13,
+        duration_all: '12m 13s',
         authors: ['Eminem', '50cent', 'Lloyd Banks'],
         tracks: [
             {
                 cover_image: './player/images/eminem.png',
-                title: 'Eminem',
-                author: 'Rap God',
+                title: 'Rap God',
+                author: ' Eminem',
                 src: 'https://tonuz.net/uploads/music/2023/10/Eminem_Rap_God.mp3',
                 inTrand: true,
             },
